@@ -834,7 +834,8 @@ class GtkClipboard:
         @param contents: string to be placed in the selection
         """
         Gdk.threads_enter()
-        self.clipBoard.set_text(contents.encode("utf-8"))
+        #self.clipBoard.set_text(contents.encode("utf-8"))
+        self.clipBoard.set_text(contents.encode("utf-8"), -1)
         Gdk.threads_leave()      
         
     def get_clipboard(self):

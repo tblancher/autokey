@@ -100,10 +100,8 @@ class RenameDialog:
         return getattr(self.ui, attr)
 
 class SettingsWidget:
-	
     KEY_MAP = HotkeySettingsDialog.KEY_MAP
     REVERSE_KEY_MAP = HotkeySettingsDialog.REVERSE_KEY_MAP
-	
     def __init__(self, parentWindow):
         self.parentWindow = parentWindow
         builder = get_ui("settingswidget.xml")

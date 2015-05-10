@@ -512,7 +512,8 @@ class XInterfaceBase(threading.Thread):
                 self.clipBoard.setText(self.__savedClipboard, QClipboard.Clipboard)
             else:
                 Gdk.threads_enter()
-                self.clipBoard.set_text(self.__savedClipboard)
+                #self.clipBoard.set_text(self.__savedClipboard)
+                self.clipBoard.set_text(self.__savedClipboard, -1)
                 Gdk.threads_leave()
 
     def __fillSelection(self, string):
@@ -534,7 +535,8 @@ class XInterfaceBase(threading.Thread):
             text = self.clipBoard.wait_for_text()
             self.__savedClipboard = ''
             if text is not None: self.__savedClipboard = text
-            self.clipBoard.set_text(string.encode("utf-8"))
+            #self.clipBoard.set_text(string.encode("utf-8"))
+            self.clipBoard.set_text(string.encode("utf-8"), -1)
             Gdk.threads_leave()
 
     def begin_send(self):
